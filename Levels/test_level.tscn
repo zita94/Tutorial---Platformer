@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://be0wwfi1p8k2x"]
+[gd_scene load_steps=18 format=3 uid="uid://be0wwfi1p8k2x"]
 
 [ext_resource type="Texture2D" uid="uid://xu1tgi765v72" path="res://Art/DayAssets/TerrainTiles/TileSheet1.png" id="1_kigs6"]
 [ext_resource type="Texture2D" uid="uid://c5rpp2prdf6yr" path="res://Art/DayAssets/TerrainTiles/TileSheet2.png" id="2_0fq1d"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c3j572an4h2mm" path="res://Art/DayAssets/ParalaxBackground/Background_Layer6A.png" id="9_llauv"]
 [ext_resource type="Texture2D" uid="uid://csuijoct51pkw" path="res://Art/DayAssets/ParalaxBackground/Background_Layer6B.png" id="10_tu60h"]
 [ext_resource type="Texture2D" uid="uid://c5qecayrdijt3" path="res://Art/DayAssets/ParalaxBackground/Background_Layer7.png" id="11_lc2hd"]
+[ext_resource type="PackedScene" uid="uid://bxlxlpgoqhuw8" path="res://Characters/Enemies/snail/enemy_1.tscn" id="13_7wlpw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdinq"]
 resource_name = "TerrainUp"
@@ -385,3 +386,6 @@ centered = false
 [node name="Sprite2D8" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerB2"]
 texture = ExtResource("11_lc2hd")
 centered = false
+
+[node name="Enemy1" parent="." instance=ExtResource("13_7wlpw")]
+position = Vector2(3264, 160)
