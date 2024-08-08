@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://be0wwfi1p8k2x"]
+[gd_scene load_steps=20 format=3 uid="uid://be0wwfi1p8k2x"]
 
 [ext_resource type="Texture2D" uid="uid://xu1tgi765v72" path="res://Art/DayAssets/TerrainTiles/TileSheet1.png" id="1_kigs6"]
 [ext_resource type="Texture2D" uid="uid://c5rpp2prdf6yr" path="res://Art/DayAssets/TerrainTiles/TileSheet2.png" id="2_0fq1d"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b6sxt7ugf1x0c" path="res://Art/DayAssets/ParalaxBackground/Background_Layer1.png" id="4_5b0oq"]
 [ext_resource type="PackedScene" uid="uid://erjyge1rwklw" path="res://Characters/player.tscn" id="4_o3kxm"]
 [ext_resource type="Texture2D" uid="uid://843q03rgs7hp" path="res://Art/DayAssets/ParalaxBackground/Background_Layer2.png" id="5_dw1jn"]
+[ext_resource type="Texture2D" uid="uid://cu4iwnt4jrim0" path="res://Art/DayAssets/ParalaxBackground/Foreground.png" id="5_r8p4n"]
 [ext_resource type="Texture2D" uid="uid://bcx2idlguhevs" path="res://Art/DayAssets/ParalaxBackground/Background_Layer3.png" id="6_v2jmv"]
 [ext_resource type="Texture2D" uid="uid://bt4ex8vemt5o4" path="res://Art/DayAssets/ParalaxBackground/Background_Layer4.png" id="7_oym74"]
 [ext_resource type="Texture2D" uid="uid://dxl2ol4p0ao75" path="res://Art/DayAssets/ParalaxBackground/Background_Layer5.png" id="8_2a1hp"]
@@ -13,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://csuijoct51pkw" path="res://Art/DayAssets/ParalaxBackground/Background_Layer6B.png" id="10_tu60h"]
 [ext_resource type="Texture2D" uid="uid://c5qecayrdijt3" path="res://Art/DayAssets/ParalaxBackground/Background_Layer7.png" id="11_lc2hd"]
 [ext_resource type="PackedScene" uid="uid://bxlxlpgoqhuw8" path="res://Characters/Enemies/snail/enemy_1.tscn" id="13_7wlpw"]
+[ext_resource type="PackedScene" uid="uid://chlgvccflx1po" path="res://UI/health_changed_manager.tscn" id="15_jv8c1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdinq"]
 resource_name = "TerrainUp"
@@ -237,14 +239,14 @@ sources/2 = SubResource("TileSetAtlasSource_712r7")
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("4_o3kxm")]
-position = Vector2(240, 128)
+position = Vector2(240, 210)
 speed = 800.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(240, 128)
+position = Vector2(240, 210)
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
@@ -259,133 +261,148 @@ format = 2
 layer_0/name = "Ground"
 layer_0/tile_data = PackedInt32Array(262144, 65536, 268435457, 262145, 0, 0, 262146, 65536, 0, 262147, 0, 0, 262148, 65536, 0, 262149, 0, 0, 262150, 65536, 0, 262151, 0, 0, 262152, 65536, 0, 262153, 0, 0, 262154, 65536, 0, 262155, 0, 0, 262156, 65536, 0, 262157, 0, 0, 262158, 65536, 0, 262159, 0, 0, 262160, 65536, 0, 327680, 65538, 1, 393216, 131074, 536870913, 327681, 2, 0, 393217, 2, 536870912, 327682, 65538, 0, 393218, 65538, 536870912, 327683, 2, 0, 393219, 2, 536870912, 327684, 65538, 0, 393220, 65538, 536870912, 327685, 2, 0, 393221, 2, 536870912, 327686, 65538, 0, 393222, 65538, 536870912, 327687, 2, 0, 393223, 2, 536870912, 327688, 65538, 0, 393224, 65538, 536870912, 327689, 2, 0, 393225, 2, 536870912, 327690, 65538, 0, 393226, 65538, 536870912, 327691, 2, 0, 393227, 2, 536870912, 327692, 65538, 0, 393228, 65538, 536870912, 327693, 2, 0, 393229, 2, 536870912, 327694, 65538, 0, 393230, 65538, 536870912, 327695, 2, 0, 393231, 2, 536870912, 327696, 65538, 0, 393232, 65538, 536870912, 262161, 65536, 0, 327697, 65538, 268435457, 393233, 131074, 805306369, 524309, 196610, 2, 524310, 196610, 2, 524311, 196610, 2, 524312, 196610, 2, 524313, 196610, 2, 524314, 196610, 2, 524315, 196610, 2, 524316, 196610, 2, 458773, 0, 0, 458774, 65536, 0, 458775, 0, 0, 458776, 65536, 0, 458777, 0, 0, 458778, 65536, 0, 458779, 0, 0, 458780, 65536, 0, 524317, 196610, 0, 524318, 196610, 0, 524319, 196610, 0, 524320, 196610, 0, 524321, 196610, 0, 524322, 196610, 0, 524323, 196610, 0, 524324, 196610, 0, 524325, 196610, 0, 524326, 196610, 0, 524327, 196610, 0, 524328, 196610, 0, 524329, 196610, 0, 524330, 196610, 0, 524331, 196610, 0, 524332, 196610, 0, 524333, 196610, 0, 524334, 196610, 0, 524335, 196610, 0, 524336, 196610, 0, 524337, 196610, 0, 524338, 196610, 0, 524339, 196610, 0, 524340, 196610, 0, 524341, 196610, 0, 524342, 196610, 0, 524343, 196610, 0, 524344, 196610, 0, 524345, 196610, 0, 524346, 196610, 0, 524347, 196610, 0, 458781, 0, 0, 458782, 65536, 0, 458783, 0, 0, 458784, 65536, 0, 458785, 0, 0, 458786, 65536, 0, 458787, 0, 0, 458788, 65536, 0, 458789, 0, 0, 458790, 65536, 0, 458791, 0, 0, 458792, 65536, 0, 458793, 0, 0, 458794, 65536, 0, 458795, 0, 0, 458796, 65536, 0, 458797, 0, 0, 458798, 65536, 0, 458799, 0, 0, 458800, 65536, 0, 458801, 0, 0, 458802, 65536, 0, 458803, 0, 0, 458804, 65536, 0, 458805, 0, 0, 458806, 65536, 0, 458807, 0, 0, 458808, 65536, 0, 458809, 0, 0, 458810, 65536, 0, 458811, 0, 0, 458812, 0, 0, 458813, 65536, 0, 458814, 0, 0, 458815, 65536, 0, 458816, 0, 0, 458817, 65536, 0, 458818, 0, 0, 458819, 65536, 0, 458820, 0, 0, 458821, 65536, 0, 458822, 0, 0, 458823, 65536, 0, 458824, 0, 0, 458825, 65536, 0, 524348, 2, 0, 524349, 65538, 0, 524350, 2, 0, 524351, 65538, 0, 524352, 2, 0, 524353, 65538, 0, 524354, 2, 0, 524355, 65538, 0, 524356, 2, 0, 524357, 65538, 0, 524358, 2, 0, 524359, 65538, 0, 524360, 2, 0, 524361, 65538, 0)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Foreground" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Foreground"]
+layer = 1
+visible = false
+
+[node name="Foreground" type="Sprite2D" parent="Foreground/ParallaxBackground"]
+visible = false
+texture = ExtResource("5_r8p4n")
+centered = false
+
+[node name="Background" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+scroll_ignore_camera_zoom = true
 
-[node name="ParallaxLayerA" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+[node name="ParallaxLayerA" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 motion_scale = Vector2(0.5, 0.5)
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerA"]
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerA"]
 texture = ExtResource("4_5b0oq")
 centered = false
 
-[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerA"]
+[node name="Sprite2D2" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerA"]
 texture = ExtResource("5_dw1jn")
 centered = false
 
-[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerA"]
+[node name="Sprite2D3" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerA"]
 texture = ExtResource("6_v2jmv")
 centered = false
 
-[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerA"]
+[node name="Sprite2D4" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerA"]
 texture = ExtResource("7_oym74")
 centered = false
 
-[node name="Sprite2D5" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerA"]
+[node name="Sprite2D5" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerA"]
 texture = ExtResource("8_2a1hp")
 centered = false
 
-[node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerA"]
+[node name="Sprite2D6" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerA"]
 texture = ExtResource("9_llauv")
 centered = false
 
-[node name="Sprite2D7" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerA"]
+[node name="Sprite2D7" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerA"]
 texture = ExtResource("10_tu60h")
 centered = false
 
-[node name="Sprite2D8" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerA"]
+[node name="Sprite2D8" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerA"]
 texture = ExtResource("11_lc2hd")
 centered = false
 
-[node name="ParallaxLayerB" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+[node name="ParallaxLayerB" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 position = Vector2(3640, 0)
 motion_scale = Vector2(0.5, 0.5)
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerB"]
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerB"]
 texture = ExtResource("4_5b0oq")
 centered = false
 
-[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerB"]
+[node name="Sprite2D2" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerB"]
 texture = ExtResource("5_dw1jn")
 centered = false
 
-[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerB"]
+[node name="Sprite2D3" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerB"]
 texture = ExtResource("6_v2jmv")
 centered = false
 
-[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerB"]
+[node name="Sprite2D4" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerB"]
 texture = ExtResource("7_oym74")
 centered = false
 
-[node name="Sprite2D5" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerB"]
+[node name="Sprite2D5" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerB"]
 texture = ExtResource("8_2a1hp")
 centered = false
 
-[node name="Sprite2D8" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerB"]
+[node name="Sprite2D8" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerB"]
 texture = ExtResource("11_lc2hd")
 centered = false
 
-[node name="ParallaxLayerC" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+[node name="ParallaxLayerC" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 position = Vector2(7280, 0)
 motion_scale = Vector2(0.5, 0.5)
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerC"]
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerC"]
 texture = ExtResource("4_5b0oq")
 centered = false
 
-[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerC"]
+[node name="Sprite2D2" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerC"]
 texture = ExtResource("5_dw1jn")
 centered = false
 
-[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerC"]
+[node name="Sprite2D3" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerC"]
 texture = ExtResource("6_v2jmv")
 centered = false
 
-[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerC"]
+[node name="Sprite2D4" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerC"]
 texture = ExtResource("7_oym74")
 centered = false
 
-[node name="Sprite2D5" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerC"]
+[node name="Sprite2D5" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerC"]
 texture = ExtResource("8_2a1hp")
 centered = false
 
-[node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerC"]
+[node name="Sprite2D6" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerC"]
 texture = ExtResource("9_llauv")
 centered = false
 
-[node name="Sprite2D8" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerC"]
+[node name="Sprite2D8" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerC"]
 texture = ExtResource("11_lc2hd")
 centered = false
 
-[node name="ParallaxLayerB2" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+[node name="ParallaxLayerB2" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 position = Vector2(10920, 0)
 motion_scale = Vector2(0.5, 0.5)
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerB2"]
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerB2"]
 texture = ExtResource("4_5b0oq")
 centered = false
 
-[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerB2"]
+[node name="Sprite2D2" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerB2"]
 texture = ExtResource("5_dw1jn")
 centered = false
 
-[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerB2"]
+[node name="Sprite2D3" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerB2"]
 texture = ExtResource("6_v2jmv")
 centered = false
 
-[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerB2"]
+[node name="Sprite2D4" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerB2"]
 texture = ExtResource("7_oym74")
 centered = false
 
-[node name="Sprite2D5" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerB2"]
+[node name="Sprite2D5" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerB2"]
 texture = ExtResource("8_2a1hp")
 centered = false
 
-[node name="Sprite2D8" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayerB2"]
+[node name="Sprite2D8" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayerB2"]
 texture = ExtResource("11_lc2hd")
 centered = false
 
 [node name="Enemy1" parent="." instance=ExtResource("13_7wlpw")]
 position = Vector2(3264, 160)
+
+[node name="HealthChangedManager" parent="." instance=ExtResource("15_jv8c1")]
